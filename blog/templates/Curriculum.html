@@ -1,0 +1,95 @@
+<html>
+    {% load staticfiles %}
+    <head>
+        <title>Curriculum</title>
+        <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    </head>
+
+    <body>
+        <script type="text/javascript" src="{% static 'js/jquery-2.1.4.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+
+        <div style="color:black;"><h2>Curriculum</h2></div>
+
+        <div class="foto"><img src="{% static 'css/img/BonDosco.jpeg' %}" style="width:150px;height:150px;margin-right:80px;margin-top:13px;" align="right" style="position:fixed;"></div>
+
+        <a class='dropdown-button btn' data-activates='dropdown1' style="width:115;color:black;">Ir a</a>
+        <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="{% url 'blog_app:blog' %}">MainSite</a></li>
+            <li><a href="{% url 'blog_app:cont' %}">Contacto</a></li>
+            <li><a href="{% url 'blog_app:eje' %}">Ejercicios</a></li>
+        </ul>
+
+
+        <div class="row">
+            <div class="col s12 m3 center-on-small-only">
+            </div>
+            <div class="col s12 m9">
+                <h5 align="center" style="margin-left:300px"><b>Dalmiro Boscossio</b></h5>
+                <p align="center" style="margin-left:300px"><b>Dalmiro Boscossio, es un alumno del ITS Villada, estudiante de de 6to Programacion. Si te interesa saber mas de el, estos son algunos de sus datos importantes.</b></p>
+            </div>
+        </div>
+
+        <div class="section"  style="width:1200px;color:black;">
+            <h5><b>Infancia</b></h5>
+            <b><p>Francisco Luis había sido viudo y tenía un hijo, Antonio Bosco, antes de su segundo matrimonio con Margarita. Una hija de su primer matrimonio, Teresa, había muerto en su infancia. Margarita Occhiena tuvo dos hijos con Francisco: el primero fue José (1813 - 1862) y el segundo Juan Melchor. En la casa vivía también la madre de Francisco Luis cuyo nombre era también Margarita.
+
+                Los Bosco de I Becchi eran en realidad una familia del campo que sobrevivían como peones de la familia Biglione. El 11 de mayo de 1817, cuando Juan tenía 21 meses de edad, Francisco falleció a causa de una pulmonía. La responsabilidad de la familia quedó en manos de su madre, Margarita.</p></b>
+        </div>
+        <div class="section" style="width:1200px;color:black;">
+            <h5><b>Primeros Estudios</b></h5>
+            <b><p>El deseo de estudiar y salir adelante son características en la vida de Juan durante este período. Para luchar por la realización de sus sueños, tendría que enfrentarse a los obstáculos que provenían de la situación de pobreza de su familia y de la oposición de su hermano Antonio que lo prefería en las faenas del campo. Ni Antonio ni José irían a la escuela. Juan en cambio sí lo hará gracias a la tenacidad de su personalidad y a la ayuda de su madre.
+
+                En 1828 deja I Becchi y va a trabajar como pastor a casa de la familia Moglia en Moncucco, distante ocho kilómetros. Desde su niñez, Juan demuestra un espíritu de liderazgo y las características del que sería su apostolado entre los jóvenes al reunir niños y jóvenes en los ratos libres y entretenerlos con actos de malabarismo y anécdotas con mensajes formativos. También comienza en ese tiempo a insistir en la idea del sacerdocio, hecho este que demostraría con una gran devoción y asistencia sacramental.</p></b>
+        </div>
+        <div class="section" style="width:1200px;color:black;">
+            <h5><b>Libros Publicados</b></h5>
+            <b><p>Memorias del Oratorio de San Francisco de Sales, entre 1873 y 1876 y publicadas póstumamente (Turín 1946).
+                El joven preparado para la práctica de sus deberes, 1847.
+                Colección de curiosos eventos contemporáneos, 1854.
+                Conversaciones entre un cura de campo y un abogado sobre el sacramento de la confesión, 1855.
+                La fuerza de la buena educación, 1855.
+                La historia de Italia para la juventud desde su poblamiento a nuestros días, 1855.
+                Vida de San Martín, obispo de Tours, 1855.
+                Vida de San Pedro, príncipe de los apóstoles, primer papa después de Jesucristo, 1857.
+                El mes de mayo consagrado a María Inmaculada, 1858.
+                Vida del jovencito Domingo Savio, alumno del Oratorio de San Francisco de Sales, 1859.
+                Biografía del sacerdote José Cafasso, 1860.
+                Trazos históricos del joven Miguel Magone, alumno del Oratorio de San Francisco de Sales, 1861.
+                Entretenida novela de un viejo soldado de Napoleón I, 1862.
+                Trazos históricos de la vida de la Beata Caterina De-Matteri da Racconigi, 1862.
+                El pastorcito de los Alpes, vida del joven Francisco Besucco d'Argentera, 1864.
+                Valentino y la vocación impedida, episodio contemporáneo, 1866.
+                Vida de la Beata María de los Ángeles, carmelita descalza de Turín, 1866.</p></b>
+        </div>
+
+        <footer class="page-footer teal">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="black-text">Page Footer</h5>
+                        <p class="black-text text-lighten-4">No sabia que poner aca, pero me parecio que este footer quedaba bien, asi que ocupe un poco de espacio escribiendo una explicacion de por que tiene este contenido. Obviamente, podria tener algo util.</p>
+
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="black-text">Ejemplo</h5>
+                        <p class="black-text text-lighten-4">Esto es un ejemplo de algo que podria ser util.</p>
+                        <ul>
+                            <a type="button" id="btngirar" class="btn-large waves-effect waves-light teal lighten-1">Boton</a>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                <div class="container" style="color:black;">
+                    Agradecimientos a <a class="white-text text-lighten-3" href="http://materializecss.com" style="color:black;">Materialize</a>, que hizo esto posible.
+                </div>
+            </div>
+        </footer>
+
+    </body>
+</html>

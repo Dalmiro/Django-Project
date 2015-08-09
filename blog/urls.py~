@@ -1,0 +1,15 @@
+from django.conf.urls import patterns, include, url
+urlpatterns = patterns('',
+	url(r'^/$', "blog.views.home", name='blog'),
+	url(r'^cont/$', "blog.views.cont", name='cont'),
+   	url(r'^curric/$', "blog.views.curric", name='curric'),
+    	url(r'^eje/$', "blog.views.eje", name='eje'),
+	url(r'^eje/calcu/$', "blog.views.calcu", name='calcu'),
+	url(r'^eje/conver/$', "blog.views.conver", name='conver'),
+	url(r'^eje/crono/$', "blog.views.crono", name='crono'),
+	url(r'^eje/boton/$', "blog.views.boton", name='boton'),
+	url(r'^eje/loading/$', "blog.views.loading", name='loading'),
+	url(r'^ver_post/(?P<id_post>[0-9]+)/$', 'blog.views.ver_post', name='vermipost'),
+	url(r'^contacto/$', 'blog.views.contact', name='contacto'),
+        url(r'^mensaje/$', 'blog.views.save_message', name='mensaje'),
+)

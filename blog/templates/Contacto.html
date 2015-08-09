@@ -1,0 +1,57 @@
+{% block content %}
+<html>
+    {% load staticfiles %}
+    <head>
+        <title>Contacto</title>
+        <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    </head>
+
+    <body>
+        <script type="text/javascript" src="{% static 'js/jquery-2.1.4.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+
+        <div style="color:black;"><h2>Contacto</h2></div>
+
+        <a class='dropdown-button btn' data-activates='dropdown1' style="width:115;color:black;">Ir a</a>
+        <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="{% url 'blog_app:blog' %}">MainSite</a></li>
+            <li><a href="{% url 'blog_app:curric' %}">Curriculum</a></li>
+            <li><a href="{% url 'blog_app:eje' %}">Ejercicios</a></li>
+        </ul>
+
+        <form action="{% url 'blog_app:contacto' %}" method="POST" name="sentMessage" id="contactForm">
+            {% csrf_token %}
+            <div class="container">
+                <ul class="collection with-header">
+                    <li class="collection-header"><h4>Info. Principal</h4></li>
+                    {{enviado}}
+                    <li class="collection-item"><div><b>Nombre y Apellido:</b> Dalmiro Boscossio<a href="#!" class="secondary-content"></a></div></li>
+                    <li class="collection-item"><div><b>Telefono / WhatsApp:</b> 0351-12345678<a href="#!" class="secondary-content"></a></div></li>
+                    <li class="collection-item"><div><b>O Contactenos Via:</b><a href="www.twitter.com"> Twitter</a><a href="www.facebook.com"> Facebook</a><a href="#!" class="secondary-content"></a></div></li>
+                    <li class="collection-item"><div><b>Nombre:</b>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input name="nombre"id="first_name2" type="text" style="height:13px;" class="validate">
+                            </div>
+                        </div>
+                    <li class="collection-item"><div><b>Mail:</b>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input name="mail"id="first_name2" type="text" style="height:13px;" class="validate">
+                            </div>
+                        </div>
+                        <li class="collection-item"><div><b>Deja tu consulta:</b> 
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input id="first_name2" name="mensaje" type="text" style="height:13px;" class="validate">
+                                    <input id="first_name2" type="submit" style="color:black;">
+                                    </form>
+                            </div>
+                            </div>
+                        </ul>
+                    </div>
+                </body>
+            </html>
+        {% endblock %}

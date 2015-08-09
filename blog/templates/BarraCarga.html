@@ -1,0 +1,53 @@
+<html>
+    {% load staticfiles %}
+    <head>
+        <title>Barra de Carga</title>
+        <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    </head>
+
+    <body>
+        <script type="text/javascript" src="{% static 'js/jquery-2.1.4.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+        <div><h1 align="center"><b>Barra de Carga</b></h1></div>
+
+
+        <div>
+            <a class='dropdown-button btn' data-activates='dropdown1' style="width:115px;color:black;">Ir a</a>
+            <ul id='dropdown1' class='dropdown-content'>
+                <li><a href="{% url 'blog_app:blog' %}">MainSite</a></li>
+                <li><a href="{% url 'blog_app:cont' %}">Contacto</a></li>
+                <li><a href="{% url 'blog_app:curric' %}">Curriculum</a></li>
+                <li><a href="{% url 'blog_app:eje' %}">Ejercicios</a></li>
+            </ul>
+        </div>
+
+
+        <div align="center"><progress value=0 max=100 id="barra" class="barraStyle"></progress></div>
+        <div align="center"><input type="button" value="Cargar" id="load" onclick="setInterval('load()',190)"/></div>
+        <div align="center"><input type="button" value="Stop" id="stop" onclick="stop()" style="width:61.10px;"/></div>
+
+
+        <script type="text/javascript">
+            function load(){
+                var aux=0;
+                if(aux==0){
+                    var barra = document.getElementById("barra");
+                    barra.value +=13;
+                    var a=barra.value;
+                    if(a==100){
+                        alert("Carga Finalizada");
+                        barra.value=0;
+                    }
+                }
+            }
+
+
+            function stop(){
+                document.location.reload();
+            }
+
+        </script>
+    </body>
+</html>

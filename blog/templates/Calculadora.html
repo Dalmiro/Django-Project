@@ -1,0 +1,81 @@
+<html>
+    {% load staticfiles %}
+    <head>
+        <title>Calculadora</title>
+        <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    </head>
+
+    <body>
+        <script type="text/javascript" src="{% static 'js/jquery-2.1.4.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+        <div><h1 align=center><b>Calculadora</b><h1></div>
+
+            <div>
+                <a class='dropdown-button btn' data-activates='dropdown1' style="width:115px;color:black;">Ir a</a>
+                <ul id='dropdown1' class='dropdown-content'>
+                    <li><a href="{% url 'blog_app:blog' %}">MainSite</a></li>
+                    <li><a href="{% url 'blog_app:cont' %}">Contacto</a></li>
+                    <li><a href="{% url 'blog_app:curric' %}">Curriculum</a></li>
+                    <li><a href="{% url 'blog_app:eje' %}">Ejercicios</a></li>
+                </ul>
+            </div>
+
+            <form class="contacto">
+                <input id="resultado" type="text" value="" style="width:300px;"/>
+
+                <br>
+                <input type="button" id="btn1" onclick="ejecutar(this)" value="1" style="width:65px;height:85px;" />
+                <input type="button" id="btn2" onclick="ejecutar(this)" value="2" style="width:65px;height:85px;"/>
+                <input type="button" id="btn3" onclick="ejecutar(this)" value="3" style="width:65px;height:85px;"/>
+                <input type="button" id="btnmas" onclick="ejecutar(this)" value="+" style="width:65px;height:85px;"/>
+                <br>
+                <input type="button" id="btn4" onclick="ejecutar(this)" value="4" style="width:65px;height:85px;"/>
+                <input type="button" id="btn5" onclick="ejecutar(this)" value="5" style="width:65px;height:85px;"/>
+                <input type="button" id="btn6" onclick="ejecutar(this)" value="6" style="width:65px;height:85px;"/>
+                <input type="button" id="btnmenos" onclick="ejecutar(this)" value="-" style="width:65px;height:85px;"/>
+                <br>
+                <input type="button" id="btn7" onclick="ejecutar(this)" value="7" style="width:65px;height:85px;"/>
+                <input type="button" id="btn8" onclick="ejecutar(this)" value="8" style="width:65px;height:85px;"/>
+                <input type="button" id="btn9" onclick="ejecutar(this)" value="9" style="width:65px;height:85px;"/>
+                <input type="button" id="btnpor" onclick="ejecutar(this)" value="*" style="width:65px;height:85px;"/>
+                <br>
+                <input type="button" id="btnpunto" onclick="ejecutar(this)" value="." style="width:65px;height:85px;"/>
+                <input type="button" id="btn0" onclick="ejecutar(this)" value="0" style="width:65px;height:85px;"/>
+                <input type="button" id="btnigual" onclick="ejecutar(this)" value="=" style="width:65px;height:85px;"/>
+                <input type="button" id="btndividido" onclick="ejecutar(this)" value="/" style="width:65px;height:85px;"/>
+            </form>
+
+            <script>
+                newval = 0;
+
+                function ejecutar(botoncitoqueaprete) {
+                    if(newval == 0 ){
+                        aprieta = botoncitoqueaprete.value;
+                        val = document.getElementById("resultado").value;    
+                        if (aprieta=="="){
+                            newval=1
+                            if (val.length!=0){
+                                result = eval(val);
+                                document.getElementById("resultado").setAttribute("value",result);
+                            }
+                        }else{
+                            document.getElementById("resultado").setAttribute("value",val+aprieta);}
+                    }else{
+                        aprieta = botoncitoqueaprete.value;
+                        if(aprieta!="=" & aprieta!="+" & aprieta!="-" & aprieta!="/" & aprieta!="*"){
+                            document.getElementById("resultado").setAttribute("value",aprieta);
+                            newval = 0;
+                        }
+                    }
+                }
+
+            </script>   
+
+
+
+            <br>
+
+            </body>
+            </html>

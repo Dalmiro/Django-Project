@@ -1,0 +1,117 @@
+<html>
+    {% load staticfiles %}
+    <head>
+        <title>Cronometro</title>
+        <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    </head>
+    <body>
+        <script type="text/javascript" src="{% static 'js/jquery-2.1.4.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+        <div><h1 align=center><b>Cronometro</b><h1></div>
+
+
+            <div>
+                <a class='dropdown-button btn' data-activates='dropdown1' style="width:115px;color:black;">Ir a</a>
+                <ul id='dropdown1' class='dropdown-content'>
+                    <li><a href="{% url 'blog_app:blog' %}">MainSite</a></li>
+                    <li><a href="{% url 'blog_app:cont' %}">Contacto</a></li>
+                    <li><a href="{% url 'blog_app:curric' %}">Curriculum</a></li>
+                    <li><a href="{% url 'blog_app:eje' %}">Ejercicios</a></li>
+                </ul>
+            </div>
+
+            <div align="center">
+                <ul>
+                    <form>
+                        <input id="Resultadocron" type="text" value="00 00 00 00" style="width:300px;"/>
+                        <br>
+                        <input type="button" id="btnemp" onclick="empezar(this)" value="Empezar" />
+                        <input type="button" id="btnpaus" onclick="pausar(this)" value="Pausar" />
+                        <input type="button" id="btncont" onclick="continuar(this)" value="Continuar" />
+                        <input type="button" id="btnrein" onclick="stop(this)" value="Reiniciar" />
+                    </form>
+                </ul>
+            </div>
+
+            <script>
+                marcha = 0;
+                resultado=document.getElementById("Resultadocron");
+
+                function ejecutaremp(apretado){
+                    aprieta = apretado.value;
+                    if(aprieta =="Empezar"){
+                        empezar();
+                    }
+                }
+
+                function ejecutarpausa(apretado){
+                    aprieta = apretado.value;
+                    if(aprieta =="Pausar"){
+                        pausar();
+                    }
+                }
+
+                function ejecutarcont(apretado){
+                    aprieta = apretado.value;
+                    if(aprieta =="Continuar"){
+                        continuar();
+                    }
+                }
+
+                function ejecutarreiniciar(apretado){
+                    aprieta = apretado.value;
+                    if(aprieta =="Reiniciar"){
+                        stop();
+                    }
+                }
+
+                function cronometro(){ 
+                    if( marcha == 0){
+                        actual=new Date();
+                        cro=actual-tim1;
+                        cr=new Date(); //con setTime pasamos a objeto tipo Fecha
+                        cr.setTime(cro); 
+                        ms=cr.getMilliseconds(); 
+                        ms=ms/10; //para pasarlo a centesimas
+                        ms=Math.round(ms); //para redondear
+                        seg=cr.getSeconds();
+                        min=cr.getMinutes();
+                        hrs=cr.getUTCHours();	 
+                        if (ms<10) {ms="0"+ms;} 
+                        if (seg<10) {seg="0"+seg;} 
+                        if (min<10) {min="0"+min;}
+                        resultado.value = (hrs+" "+min+" "+seg+" "+ms); 
+                    }
+                }
+
+                function empezar() {
+                    tim1=new Date();
+                    conometrito=setInterval(cronometro,10);
+                }
+
+                function stop(){
+                    resultado.value = ("00 00 00 00"); 
+                    document.location.reload();
+                }
+
+                function pausar(){
+                    marcha=1;
+                    cronometro();
+                }
+
+                function continuar(){
+                    marcha=0;
+                    tim2=new Date();
+                    tim2=tim2.getTime();
+                    tim3=tim2-cro;
+                    tim1=new Date();
+                    tim1.setTime(tim3);
+                }
+
+            </script>
+
+
+            </body>
+            </html>

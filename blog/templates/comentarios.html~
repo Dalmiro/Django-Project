@@ -1,0 +1,8 @@
+{% for mensaje in mensajes %}
+    <div class="container">
+        <div class="row">
+            <h5><b>{{mensaje.autor}}</b></h5>
+            <p>{{mensaje.mensaje}}</p>
+        </div>
+    </div>
+{% endfor %}

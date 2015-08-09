@@ -1,0 +1,7 @@
+progress[value] {
+    -webkit-appearance: none;
+    width: 290px;
+    height: 30px;
+    overflow:hidden;
+
+}

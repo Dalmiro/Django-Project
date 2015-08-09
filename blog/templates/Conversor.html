@@ -1,0 +1,112 @@
+<html>
+    {% load staticfiles %}
+    <head>
+        <title>Conversor</title>
+        <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    </head>
+    <body>
+        <script type="text/javascript" src="{% static 'js/jquery-2.1.4.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+        <div><h1 align=center><b>Conversor de Moneda</b><h1></div>
+
+
+            <div>
+                <a class='dropdown-button btn' data-activates='dropdown1' style="width:115px;color:black;">Ir a</a>
+                <ul id='dropdown1' class='dropdown-content'>
+                    <li><a href="{% url 'blog_app:blog' %}">MainSite</a></li>
+                    <li><a href="{% url 'blog_app:cont' %}">Contacto</a></li>
+                    <li><a href="{% url 'blog_app:curric' %}">Curriculum</a></li>
+                    <li><a href="{% url 'blog_app:eje' %}">Ejercicios</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <form class="contacto">
+                    <p><b>Seleccione el tipo de moneda que va a ingresar, y luego la cantidad.</b></p>
+
+                    <input type="button" id="btnars" onclick="convertir(this)" value="ARS" style="width:85px;height:40px;" />
+                    <input type="button" id="btndolkpar" onclick="convertir(this)" value="Dolar" style="width:85px;height:40px;"/>
+                    <input type="button" id="btneuro" onclick="convertir(this)" value="Euro" style="width:85px;height:40px;"/>
+                    <br>
+                    <input id="Ingreso" type="text" value="" style="color:black;width:300px"/>
+
+                    <br><br>
+                    <p><b>Seleccione el tipo de moneda al que quiere convertir.</b></p>
+                    <input type="button" id="btnars2" onclick="convertir(this)" value="Pesos ARS" style="width:85px;height:40px;"/>
+                    <input type="button" id="btndolar2" onclick="convertir(this)" value="Dolares" style="width:85px;height:40px;"/>
+                    <input type="button" id="btneuro2" onclick="convertir(this)" value="Euros" style="width:85px;height:40px;"/>
+                    <br>
+                    <input id="Resultado" type="text" value="" style="color:black;width:300px;"/>
+                </form>
+            </div>
+
+            <script>
+                function convertir(botonapretado){
+                    aprieta = botonapretado.value;
+                    mon1 = document.getElementById("Ingreso").value;
+                    mon2 = document.getElementById("Resultado").value;
+                    result = 0;
+                    //Dolar a otras monedas
+                    //dolar= 1;
+                    //ars= 0.1;
+                    //euro= 1.2;
+                    //real= 0.3;
+
+                    if(aprieta=="Pesos ARS"){      
+                        mon1 = document.getElementById("Ingreso").value;
+                        mon1 = mon1*0.1;
+                        if(aprieta=="Pesos ARS"){
+                            result = mon1*1;
+                            document.getElementById("Resultado").setAttribute("value",result);
+                        }
+                        if(aprieta=="Dolares"){
+                            result = mon1*0,1;
+                            document.getElementById("Resultado").setAttribute("value",result);
+                        }
+                        if(aprieta=="Euros"){
+                            result = mon1*0,1;
+                            document.getElementById("Resultado").setAttribute("value",result);
+                        }
+                    }
+
+                    if(aprieta=="Dolares"){      
+                        mon1 = document.getElementById("Ingreso").value;
+                        mon1 = mon1*0.1;
+                        if(aprieta=="Pesos ARS"){
+                            result = mon1*8,8;
+                            document.getElementById("Resultado").setAttribute("value",result);
+                        }
+                        if(aprieta=="Dolares"){
+                            result = mon1*1;
+                            document.getElementById("Resultado").setAttribute("value",result);
+                        }
+                        if(aprieta=="Euros"){
+                            result = mon1*0,9;
+                            document.getElementById("Resultado").setAttribute("value",result);
+                        }
+                    }
+
+                    if(aprieta=="Euros"){      
+                        mon1 = document.getElementById("Ingreso").value;
+                        mon1 = mon1*0.1;
+                        if(aprieta=="Pesos ARS"){
+                            result = mon1*0,09;
+                            document.getElementById("Resultado").setAttribute("value",result);
+                        }
+                        if(aprieta=="Dolares"){
+                            result = mon1*0,9;
+                            document.getElementById("Resultado").setAttribute("value",result);
+                        }
+                        if(aprieta=="Euros"){
+                            result = mon1*1;
+                            document.getElementById("Resultado").setAttribute("value",result);
+                        }
+                    }
+
+                }
+            </script>
+            <br>
+            </body>
+            </html>

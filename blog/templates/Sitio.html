@@ -1,0 +1,136 @@
+<html>	
+    {% load staticfiles %}
+    <head>
+        <title>MainSite</title>
+        <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    </head>
+
+    <body>
+        <script type="text/javascript" src="{% static 'js/jquery-2.1.4.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+        <div style="color:black;" align="center"><h2><b>Dalmiro's Web Site</b></bDalm></h2></div>
+
+    <a class='dropdown-button btn' data-activates='dropdown1' style="width:115px;color:black;">Ir a</a>
+    <ul id='dropdown1' class='dropdown-content'>
+        <li><a href="{% url 'blog_app:cont' %}">Contacto</a></li>
+        <li><a href="{% url 'blog_app:curric' %}">Curriculum</a></li>
+        <li><a href="{% url 'blog_app:eje' %}">Ejercicios</a></li>
+    </ul>
+
+    <div><h1 class="text-center" style="color:black;" align="center">Bienvenido a mi Blog</h1></div>
+
+    {% for post in posts %}
+    <div class="section"  style="color:black;">
+        <a href="{% url 'blog_app:vermipost' post.id %}" style="color:black;">
+        <h5><b>{{post.titulo}}</b></h5>
+        <b><p>{{post.resumen}}</p></b>
+        <p class="post-meta">Posteado por {{post.autor}}</p>
+    </div>
+    {% endfor %}
+    
+    <div class="section"  style="color:black;">
+        <h5><b>Este es un Blog, hecho con HTML5 </b></h5>
+        <b><p>HTML5 (HyperText Markup Language, versión 5) es la quinta revisión importante del lenguaje básico de la World Wide Web, HTML. HTML5 especifica dos variantes de sintaxis para HTML: un «clásico» HTML (text/html), la variante conocida como HTML5 y una variante XHTML conocida como sintaxis XHTML5 que deberá ser servida como XML.1 2 Esta es la primera vez que HTML y XHTML se han desarrollado en paralelo.
+            La versión definitiva de la quinta revisión del estándar se publicó en octubre de 2014.</p></b>
+    </div>
+
+    <div class="section"  style="color:black;">
+        <h5><b>Tambien utilize el Framework Materialize</b></h5>
+        <b><p>Creado y diseñado por Google, Material Design es un lenguaje de diseño que combina los principios clásicos del diseño exitoso junto con la innovación y la tecnología. El objetivo de Google consiste en desarrollar un sistema de diseño que permite una experiencia de usuario unificada a través de todos sus productos en cualquier plataforma.</p></b>
+    </div>
+    <div class="section"  style="color:black;">
+        <h5><b>Algunos Ejemplos</b></h5>
+        <a class="btn" onclick="Materialize.toast('I am a toast', 2000)" style="color:black">Toast!</a>
+        <a class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip" style="color:black">Hover me!</a>
+        <script>
+            function(){
+                // Materialize.toast(message, displayLength, className, completeCallback);
+                Materialize.toast('I am a toast!', 4000) // 4000 is the duration of the toast
+            }
+        </script>
+
+        <ul class="collapsible popout" data-collapsible="accordion">
+            <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header" style="color:black;"><i class="mdi-image-filter-drama"></i>First</div>
+                    <div class="collapsible-body" style="color:white"><p>Lorem ipsum dolor sit amet.</p></div>
+                </li>
+                <li>
+                    <div class="collapsible-header" style="color:black;"><i class="mdi-maps-place"></i>Second</div>
+                    <div class="collapsible-body" style="color:white"><p>Lorem ipsum dolor sit amet.</p></div>
+                </li>
+                <li>
+                    <div class="collapsible-header" style="color:black;"><i class="mdi-social-whatshot"></i>Third</div>
+                    <div class="collapsible-body" style="color:white"><p>Lorem ipsum dolor sit amet.</p></div>
+                </li>
+            </ul>
+        </ul>
+
+
+
+        <select class="browser-default" style="color:black;">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
+
+
+        <form action="#">
+            <p>
+                <input type="checkbox" id="test5" />
+                <label for="test5" style="color:black">Red</label>
+            </p>
+            <p>
+                <input type="checkbox" id="test6" checked="checked" />
+                <label for="test6" style="color:black">Yellow</label>
+            </p>
+            <p>
+                <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                <label for="filled-in-box" style="color:black">Filled in</label>
+            </p>
+        </form>
+
+
+        <form action="#">
+            <div class="file-field input-field">
+                <input class="file-path validate" type="text"/>
+                <div class="btn">
+                    <span style="color:black">File</span>
+                    <input type="file" />
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <footer class="page-footer teal">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="black-text">Page Footer</h5>
+                    <p class="black-text text-lighten-4">No sabia que poner aca, pero me parecio que este footer quedaba bien, asi que ocupe un poco de espacio escribiendo una explicacion de por que tiene este contenido. Obviamente, podria tener algo util.</p>
+
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="black-text">Ejemplo</h5>
+                    <p class="black-text text-lighten-4">Esto es un ejemplo de algo que podria ser util.</p>
+                    <ul>
+                        <a type="button" id="btnutil" class="btn-large waves-effect waves-light teal lighten-1">Boton</a>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container" style="color:black;">
+                Agradecimientos a <a class="white-text text-lighten-3" href="http://materializecss.com">Materialize</a>, que hizo esto posible.
+            </div>
+        </div>
+    </footer>
+    </body>
+</html>
+
+
+

@@ -1,0 +1,132 @@
+<html>
+    {% load staticfiles %}
+    <head>
+        <title>Ejercicios</title>
+        <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    </head>
+
+    <body>
+        <script type="text/javascript" src="{% static 'js/jquery-2.1.4.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+        <div style="color:black;"><h2><b>Ejercicios</b></h2></div>
+
+        <a class='dropdown-button btn' data-activates='dropdown1' style="width:115px;color:black;">Ir a</a>
+        <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="{% url 'blog_app:blog' %}">MainSite</a></li>
+            <li><a href="{% url 'blog_app:cont' %}">Contacto</a></li>
+            <li><a href="{% url 'blog_app:curric' %}">Curriculum</a></li>
+        </ul>
+
+
+
+        <div class="row" style="width:500px;margin-left:3%;margin-top:0px;">
+            <div class="col s12 m7">
+                <div class="card" style="width:300px;">
+                    <div class="card-image">
+                        <img src="{% static 'css/img/calculadora.png' %}">
+                    </div>
+                    <div class="card-content">
+                        <p>Este es el primer ejercicio, una calculadora en Javascript.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="{% url 'blog_app:calcu' %}" style="color:black;"><b>Ir a calculadora</b></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" style="width:500px;margin-left:37%;margin-top:-500px;">
+            <div class="col s12 m7 l6">
+                <div class="card" style="width:300px;height:440px">
+                    <div class="card-image">
+                        <img src="{% static 'css/img/moneda.png' %}" style="width:270px;margin-left:17px;">
+                    </div>
+                    <div class="card-content">
+                        <p>Este es el segundo ejercicio, un conversor de monedas en Javascript.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="{% url 'blog_app:conver' %}" style="color:black;"><b>Ir a conversor</b></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="width:644px;margin-left:72%;margin-top:-800px;">
+            <div class="col s12 m7 l6">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{% static 'css/img/cronometro.png' %}">
+                    </div>
+                    <div class="card-content">
+                        <p>Este es el tercer ejercicio, un cronometro en Javascript.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="{% url 'blog_app:crono' %}" style="color:black;"><b>Ir a cronometro</b></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="width:500px;margin-left:3%;margin-top:100px;">
+            <div class="col s12 m7 l6">
+                <div class="card" style="width:300px;height:440px">
+                    <div class="card-image">
+                        <img src="{% static 'css/img/boton.png' %}" style="width:270px;margin-left:17px;">
+                    </div>
+                    <div class="card-content">
+                        <p>Este es el cuarto ejercicio, un boton "chistoso" en Javascript.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="{% url 'blog_app:boton' %}" style="color:black;"><b>Ir a boton</b></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" style="width:500px;margin-left:37%;margin-top:-800px;">
+            <div class="col s12 m7">
+                <div class="card" style="width:300px;">
+                    <div class="card-image">
+                        <img src="{% static 'css/img/loadbarra.png' %}" style="width:280px;height:290px;margin-left:10px;">
+                    </div>
+                    <div class="card-content">
+                        <p>Este es el quinto ejercicio, una bara de carga en Javascript.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="{% url 'blog_app:loading' %}" style="color:black;"><b>Ir a barra de carga</b></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="page-footer teal">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="black-text">Page Footer</h5>
+                        <p class="black-text text-lighten-4">No sabia que poner aca, pero me parecio que este footer quedaba bien, asi que ocupe un poco de espacio escribiendo una explicacion de por que tiene este contenido. Obviamente, podria tener algo util.</p>
+
+                    </div>
+                    <div class="col l3 s12">
+                        <h5 class="black-text">Ejemplo</h5>
+                        <p class="black-text text-lighten-4">Esto es un ejemplo de algo que podria ser util.</p>
+                        <ul>
+                            <a type="button" id="btngirar" class="btn-large waves-effect waves-light teal lighten-1">Boton</a>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                <div class="container" style="color:black;">
+                    Agradecimientos a <a class="white-text text-lighten-3" href="http://materializecss.com">Materialize</a>, que hizo esto posible.
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

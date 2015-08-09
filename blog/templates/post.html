@@ -1,0 +1,113 @@
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+
+{% load staticfiles %}
+<head>
+    <title>Post</title>
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+</head>
+
+<a class='dropdown-button btn' data-activates='dropdown1' style="width:115px;color:black;">Ir a</a>
+    <ul id='dropdown1' class='dropdown-content'>
+        <li><a href="{% url 'blog_app:blog' %}">MainSite</a></li>
+        <li><a href="{% url 'blog_app:cont' %}">Contacto</a></li>
+        <li><a href="{% url 'blog_app:curric' %}">Curriculum</a></li>
+        <li><a href="{% url 'blog_app:eje' %}">Ejercicios</a></li>
+    </ul>
+
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 class="section-heading">{{post.titulo}}</h2>
+                <h5 class="section-heading">Posted by {{post.autor}}</h5>
+                <h5 class="section-heading">{{post.fecha}}</h5>
+                <p>{{post.contenido}} </p>
+                <h3>Comentarios:</h3>
+            </div>
+        </div>
+    </div>
+</article>
+
+<body>
+
+
+
+        <script type="text/javascript" src="{% static 'js/jquery-2.1.4.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+
+<div id="mensajes">
+    {% include "comentarios.html" %}
+</div>
+
+
+
+    <form id="contactForm">
+        {% csrf_token %}
+        <div class="container">
+            <ul class="collection with-header">
+                <li class="collection-header"><h4>Deja tu comentario</h4></li>
+
+                <li class="collection-item"><div><b>Nombre:</b>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="nombre" type="text" style="height:13px;" class="validate">
+                        </div>
+                    </div>
+                <li class="collection-item"><div><b>Mail:</b>
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="mail" type="text" style="height:13px;" class="validate">
+            </div>
+        </div>
+            <li class="collection-item"><div><b>Comentario:</b> 
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="comentario" type="text" style="height:13px;" class="validate">
+                        <input value="Send" id="send" type="button" style="color:black;"></input>
+                    </div>
+                </div>
+    </form>
+
+
+
+<script>
+
+    $("#send").click(function comentario(){
+        var data={
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+            autor:$("#nombre").val(),
+            mensaje:$("#comentario").val(),
+            mail:$("#mail").val(),
+            id:'{{post.id}}',
+        }
+        $.ajax({
+            method: "POST",
+            url: "{% url 'blog_app:mensaje' %}",
+            data: data,
+            success:function(result){
+		$("#mensajes").html(result);
+                	$("#nombre").val("");
+		$("#mail").val("");
+                	$("#comentario").val("");
+            },
+            error: function(e){
+                console.log(e.responseText);
+            },
+        });
+
+    });
+</script>
+
+</body>
+
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
