@@ -107,7 +107,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 
 EMAIL_HOST_USER = 'dalmirogrol@gmail.com'
 
-EMAIL_HOST_PASSWORD = '40403978as'
+EMAIL_HOST_PASSWORD = 'contraseña'
 
 EMAIL_PORT = 587
 
